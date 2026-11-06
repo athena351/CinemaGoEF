@@ -1,40 +1,46 @@
 using CinemaGoEF.Core.Interfaces;
 using CinemaGoEF.Core.Models.Entities;
 using CinemaGoEF.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace CinemaGoEF.Infrastructure.Repositories;
 
 public class TicketRepository : ITicketRepository
 {
     private readonly CinemaGoDbContext _context;
-    
+
     public TicketRepository(CinemaGoDbContext context)
     {
         _context = context;
     }
-    
-    public Task<ICollection<Ticket>> GetAll()
+
+    public async Task<ICollection<Ticket>> GetAll()
     {
-        throw new NotImplementedException();
+        return await _context.Set<Ticket>().ToListAsync();
     }
 
-    public Task<Ticket?> GetById(int id)
+    public async Task<Ticket?> GetById(int ticketId)
     {
-        throw new NotImplementedException();
+        return await _context.Set<Ticket>().FindAsync(ticketId);
     }
 
-    public Task Add(Ticket ticket)
+    public async Task Add(Ticket ticket)
     {
-        throw new NotImplementedException();
+        await _context.Set<Ticket>().AddAsync(ticket);
     }
 
-    public Task Update(Ticket ticket)
+    public async Task Update(Ticket ticket)
     {
-        throw new NotImplementedException();
+        _context.Set<Ticket>().Update(ticket);
     }
 
-    public Task Delete(int ticketId)
+    public async Task Delete(int ticketId)
     {
-        throw new NotImplementedException();
+        Ticket? ticket = await _context.Set<Ticket>().FindAsync(ticketId);
+
+        if (ticket != null)
+        {
+            _context.Set<Ticket>().Remove(ticket);
+        }
     }
 }

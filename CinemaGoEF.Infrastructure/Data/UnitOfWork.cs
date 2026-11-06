@@ -1,18 +1,19 @@
 using CinemaGoEF.Core.Interfaces;
+using CinemaGoEF.Infrastructure.Data;
 
-namespace CinemaGoEF.Infrastructure.Data;
+namespace CinemaGoEF.Infrastructure.Repositories;
 
 public class UnitOfWork : IUnitOfWork
 {
     private readonly CinemaGoDbContext _context;
-    
+
     public UnitOfWork(CinemaGoDbContext context)
     {
         _context = context;
     }
 
-    public int SaveChanges()
+    public async Task<int> SaveChangesAsync()
     {
-        return _context.SaveChanges();
+        return await _context.SaveChangesAsync();
     }
 }

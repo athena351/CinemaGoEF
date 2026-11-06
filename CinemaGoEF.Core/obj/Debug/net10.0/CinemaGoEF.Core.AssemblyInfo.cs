@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CinemaGoEF.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b56c6b667b717ba23258a371b0e203af6f5902a6")]
 [assembly: System.Reflection.AssemblyProductAttribute("CinemaGoEF.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CinemaGoEF.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,40 +1,46 @@
 using CinemaGoEF.Core.Interfaces;
 using CinemaGoEF.Core.Models.Entities;
 using CinemaGoEF.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace CinemaGoEF.Infrastructure.Repositories;
 
 public class MovieRepository : IMovieRepository
 {
     private readonly CinemaGoDbContext _context;
-    
+
     public MovieRepository(CinemaGoDbContext context)
     {
         _context = context;
     }
-    
-    public Task<ICollection<Movie>> GetAllMovie()
+
+    public async Task<ICollection<Movie>> GetAllMovie()
     {
-        throw new NotImplementedException();
+        return await _context.Movies.ToListAsync();
     }
 
-    public Task<Movie?> GetMovieById(int id)
+    public async Task<Movie?> GetMovieById(int movieId)
     {
-        throw new NotImplementedException();
+        return await _context.Movies.FindAsync(movieId);
     }
 
-    public Task AddMovie(Movie movie)
+    public async Task AddMovie(Movie movie)
     {
-        throw new NotImplementedException();
+        await _context.Movies.AddAsync(movie);
     }
 
-    public Task UpdateMovie(Movie movie)
+    public async Task UpdateMovie(Movie movie)
     {
-        throw new NotImplementedException();
+        _context.Movies.Update(movie);
     }
 
-    public Task DeleteMovie(int id)
+    public async Task DeleteMovie(int movieId)
     {
-        throw new NotImplementedException();
+        Movie? movie = await _context.Movies.FindAsync(movieId);
+
+        if (movie != null)
+        {
+            _context.Movies.Remove(movie);
+        }
     }
 }

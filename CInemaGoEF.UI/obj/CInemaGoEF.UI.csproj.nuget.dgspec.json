@@ -53,6 +53,14 @@
             "AutoMapper": {
               "target": "Package",
               "version": "[16.2.0, )"
+            },
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.2.0, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[11.0.0-rc.3.26522.148, )"
             }
           },
           "imports": [
@@ -1106,6 +1114,10 @@
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
+              "target": "Package",
+              "version": "[11.0.0-rc.3.26522.148, )"
+            },
+            "Microsoft.Extensions.Configuration": {
               "target": "Package",
               "version": "[11.0.0-rc.3.26522.148, )"
             }

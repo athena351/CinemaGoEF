@@ -1,40 +1,46 @@
 using CinemaGoEF.Core.Interfaces;
 using CinemaGoEF.Core.Models.Entities;
 using CinemaGoEF.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace CinemaGoEF.Infrastructure.Repositories;
 
 public class SessionRepository : ISessionRepository
 {
     private readonly CinemaGoDbContext _context;
-    
+
     public SessionRepository(CinemaGoDbContext context)
     {
         _context = context;
     }
-    
-    public Task<ICollection<Session>> GetAllSessions()
+
+    public async Task<ICollection<Session>> GetAllSessions()
     {
-        throw new NotImplementedException();
+        return await _context.Sessions.ToListAsync();
     }
 
-    public Task<Session?> GetSessionById(int id)
+    public async Task<Session?> GetSessionById(int sessionId)
     {
-        throw new NotImplementedException();
+        return await _context.Sessions.FindAsync(sessionId);
     }
 
-    public Task AddSession(Session session)
+    public async Task AddSession(Session session)
     {
-        throw new NotImplementedException();
+        await _context.Sessions.AddAsync(session);
     }
 
-    public Task UpdateSession(Session session)
+    public async Task UpdateSession(Session session)
     {
-        throw new NotImplementedException();
+        _context.Sessions.Update(session);
     }
 
-    public Task DeleteSession(int id)
+    public async Task DeleteSession(int sessionId)
     {
-        throw new NotImplementedException();
+        Session? session = await _context.Sessions.FindAsync(sessionId);
+
+        if (session != null)
+        {
+            _context.Sessions.Remove(session);
+        }
     }
 }

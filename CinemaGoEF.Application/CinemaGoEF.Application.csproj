@@ -12,6 +12,8 @@
 
     <ItemGroup>
       <PackageReference Include="AutoMapper" Version="16.2.0" />
+      <PackageReference Include="BCrypt.Net-Next" Version="4.2.0" />
+      <PackageReference Include="Microsoft.Extensions.Configuration" Version="11.0.0-rc.3.26522.148" />
     </ItemGroup>
 
 </Project>

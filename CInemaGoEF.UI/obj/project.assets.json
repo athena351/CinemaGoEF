@@ -56,6 +56,15 @@
           }
         }
       },
+      "BCrypt.Net-Next/4.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/net10.0/BCrypt-Net-Next.dll": {}
+        },
+        "runtime": {
+          "lib/net10.0/BCrypt-Net-Next.dll": {}
+        }
+      },
       "Humanizer.Core/2.14.1": {
         "type": "package",
         "compile": {
@@ -666,10 +675,30 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
-      "Microsoft.Extensions.Configuration.Abstractions/10.0.14": {
+      "Microsoft.Extensions.Configuration/11.0.0-rc.3.26522.148": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Primitives": "10.0.14"
+          "Microsoft.Extensions.Configuration.Abstractions": "11.0.0-rc.3.26522.148",
+          "Microsoft.Extensions.Primitives": "11.0.0-rc.3.26522.148"
+        },
+        "compile": {
+          "lib/net10.0/Microsoft.Extensions.Configuration.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.Extensions.Configuration.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net10.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration.Abstractions/11.0.0-rc.3.26522.148": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "11.0.0-rc.3.26522.148"
         },
         "compile": {
           "lib/net10.0/Microsoft.Extensions.Configuration.Abstractions.dll": {
@@ -682,7 +711,7 @@
           }
         },
         "build": {
-          "buildTransitive/net8.0/_._": {}
+          "buildTransitive/net10.0/_._": {}
         }
       },
       "Microsoft.Extensions.DependencyInjection/10.0.14": {
@@ -796,7 +825,7 @@
           "buildTransitive/net8.0/Microsoft.Extensions.Options.targets": {}
         }
       },
-      "Microsoft.Extensions.Primitives/10.0.14": {
+      "Microsoft.Extensions.Primitives/11.0.0-rc.3.26522.148": {
         "type": "package",
         "compile": {
           "lib/net10.0/Microsoft.Extensions.Primitives.dll": {
@@ -809,7 +838,7 @@
           }
         },
         "build": {
-          "buildTransitive/net8.0/_._": {}
+          "buildTransitive/net10.0/_._": {}
         }
       },
       "Microsoft.Identity.Client/4.84.2": {
@@ -1314,7 +1343,9 @@
         "framework": ".NETCoreApp,Version=v10.0",
         "dependencies": {
           "AutoMapper": "16.2.0",
-          "CinemaGoEF.Core": "1.0.0"
+          "BCrypt.Net-Next": "4.2.0",
+          "CinemaGoEF.Core": "1.0.0",
+          "Microsoft.Extensions.Configuration": "11.0.0-rc.3.26522.148"
         },
         "compile": {
           "bin/placeholder/CinemaGoEF.Application.dll": {}
@@ -1412,6 +1443,31 @@
         "lib/net8.0/Azure.Identity.xml",
         "lib/netstandard2.0/Azure.Identity.dll",
         "lib/netstandard2.0/Azure.Identity.xml"
+      ]
+    },
+    "BCrypt.Net-Next/4.2.0": {
+      "sha512": "gwLD2KfCuwQesP17aVh4h6lpiMPEVt5Lbpndo0ej903hNUUTtyxt3ARdDjmuydBRTAUICc7OVKVbaOvc6SQYXA==",
+      "type": "package",
+      "path": "bcrypt.net-next/4.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "bcrypt.net-next.4.2.0.nupkg.sha512",
+        "bcrypt.net-next.nuspec",
+        "ico.png",
+        "lib/net10.0/BCrypt-Net-Next.dll",
+        "lib/net10.0/BCrypt.Net-Next.xml",
+        "lib/net462/BCrypt-Net-Next.dll",
+        "lib/net462/BCrypt.Net-Next.xml",
+        "lib/net472/BCrypt-Net-Next.dll",
+        "lib/net472/BCrypt.Net-Next.xml",
+        "lib/net48/BCrypt-Net-Next.dll",
+        "lib/net48/BCrypt.Net-Next.xml",
+        "lib/netstandard2.0/BCrypt-Net-Next.dll",
+        "lib/netstandard2.0/BCrypt.Net-Next.xml",
+        "lib/netstandard2.1/BCrypt-Net-Next.dll",
+        "lib/netstandard2.1/BCrypt.Net-Next.xml",
+        "readme.md"
       ]
     },
     "Humanizer.Core/2.14.1": {
@@ -2798,31 +2854,56 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.Configuration.Abstractions/10.0.14": {
-      "sha512": "4YdfvaoWn3tB1xQQHGrhRTFWJ8fGOqxThxduynSZy9ZFTiSaUi3vX4EK/kj8h2HQMwTlks9MWV1fv2WRBv5/1w==",
+    "Microsoft.Extensions.Configuration/11.0.0-rc.3.26522.148": {
+      "sha512": "eKYZzPkX3fQy+NBmU6Jn6i4K43cF7VR0EvEbe2xd+92LSjuW9KeLOG4IK8c1z6eZ0QhAp7t1m94EYrbFtCn6pQ==",
       "type": "package",
-      "path": "microsoft.extensions.configuration.abstractions/10.0.14",
+      "path": "microsoft.extensions.configuration/11.0.0-rc.3.26522.148",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "PACKAGE.md",
         "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net10.0/_._",
+        "buildTransitive/net461/Microsoft.Extensions.Configuration.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Configuration.targets",
+        "lib/net10.0/Microsoft.Extensions.Configuration.dll",
+        "lib/net10.0/Microsoft.Extensions.Configuration.xml",
+        "lib/net11.0/Microsoft.Extensions.Configuration.dll",
+        "lib/net11.0/Microsoft.Extensions.Configuration.xml",
+        "lib/net462/Microsoft.Extensions.Configuration.dll",
+        "lib/net462/Microsoft.Extensions.Configuration.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.xml",
+        "microsoft.extensions.configuration.11.0.0-rc.3.26522.148.nupkg.sha512",
+        "microsoft.extensions.configuration.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.Configuration.Abstractions/11.0.0-rc.3.26522.148": {
+      "sha512": "CMBEWzHrlI26BuDDfioYS29l2eQaQR5sMTRmxrJ8FN6L/H8lEscrZdwXZCeoHlpy0Nbb6XfPjecPMWWIU24sdg==",
+      "type": "package",
+      "path": "microsoft.extensions.configuration.abstractions/11.0.0-rc.3.26522.148",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net10.0/_._",
         "buildTransitive/net461/Microsoft.Extensions.Configuration.Abstractions.targets",
         "buildTransitive/net462/_._",
-        "buildTransitive/net8.0/_._",
         "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Configuration.Abstractions.targets",
         "lib/net10.0/Microsoft.Extensions.Configuration.Abstractions.dll",
         "lib/net10.0/Microsoft.Extensions.Configuration.Abstractions.xml",
+        "lib/net11.0/Microsoft.Extensions.Configuration.Abstractions.dll",
+        "lib/net11.0/Microsoft.Extensions.Configuration.Abstractions.xml",
         "lib/net462/Microsoft.Extensions.Configuration.Abstractions.dll",
         "lib/net462/Microsoft.Extensions.Configuration.Abstractions.xml",
-        "lib/net8.0/Microsoft.Extensions.Configuration.Abstractions.dll",
-        "lib/net8.0/Microsoft.Extensions.Configuration.Abstractions.xml",
-        "lib/net9.0/Microsoft.Extensions.Configuration.Abstractions.dll",
-        "lib/net9.0/Microsoft.Extensions.Configuration.Abstractions.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.xml",
-        "microsoft.extensions.configuration.abstractions.10.0.14.nupkg.sha512",
+        "microsoft.extensions.configuration.abstractions.11.0.0-rc.3.26522.148.nupkg.sha512",
         "microsoft.extensions.configuration.abstractions.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -3067,31 +3148,29 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.Primitives/10.0.14": {
-      "sha512": "1bbZqqCJTPba3inTADExbp/9PsGVyvGOX3zr6tFr7ySCgVkX9Lpw7BV0TizktNItd3SsbUu1sQfSAYm1GZMoNw==",
+    "Microsoft.Extensions.Primitives/11.0.0-rc.3.26522.148": {
+      "sha512": "rnPiAbwjMG8IU1MKtzxE3U+VyS60vj1EtVPFVJhmC0eQDR9orMVAsC3saU9GxRHGGbQPwKXYDnPms0DVKBkBoA==",
       "type": "package",
-      "path": "microsoft.extensions.primitives/10.0.14",
+      "path": "microsoft.extensions.primitives/11.0.0-rc.3.26522.148",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "PACKAGE.md",
         "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net10.0/_._",
         "buildTransitive/net461/Microsoft.Extensions.Primitives.targets",
         "buildTransitive/net462/_._",
-        "buildTransitive/net8.0/_._",
         "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Primitives.targets",
         "lib/net10.0/Microsoft.Extensions.Primitives.dll",
         "lib/net10.0/Microsoft.Extensions.Primitives.xml",
+        "lib/net11.0/Microsoft.Extensions.Primitives.dll",
+        "lib/net11.0/Microsoft.Extensions.Primitives.xml",
         "lib/net462/Microsoft.Extensions.Primitives.dll",
         "lib/net462/Microsoft.Extensions.Primitives.xml",
-        "lib/net8.0/Microsoft.Extensions.Primitives.dll",
-        "lib/net8.0/Microsoft.Extensions.Primitives.xml",
-        "lib/net9.0/Microsoft.Extensions.Primitives.dll",
-        "lib/net9.0/Microsoft.Extensions.Primitives.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Primitives.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Primitives.xml",
-        "microsoft.extensions.primitives.10.0.14.nupkg.sha512",
+        "microsoft.extensions.primitives.11.0.0-rc.3.26522.148.nupkg.sha512",
         "microsoft.extensions.primitives.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -3813,7 +3892,8 @@
       "CinemaGoEF.Infrastructure >= 1.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 10.0.14",
       "Microsoft.EntityFrameworkCore.SqlServer >= 10.0.14",
-      "Microsoft.EntityFrameworkCore.Tools >= 11.0.0-rc.3.26522.148"
+      "Microsoft.EntityFrameworkCore.Tools >= 11.0.0-rc.3.26522.148",
+      "Microsoft.Extensions.Configuration >= 11.0.0-rc.3.26522.148"
     ]
   },
   "packageFolders": {
@@ -3884,6 +3964,10 @@
           "Microsoft.EntityFrameworkCore.Tools": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
+            "target": "Package",
+            "version": "[11.0.0-rc.3.26522.148, )"
+          },
+          "Microsoft.Extensions.Configuration": {
             "target": "Package",
             "version": "[11.0.0-rc.3.26522.148, )"
           }

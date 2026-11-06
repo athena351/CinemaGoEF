@@ -1,3 +1,5 @@
+using CinemaGoEF.Core.Enums;
+
 namespace CinemaGoEF.Core.Models.DTOs.UserDTOs;
 
 public class UserDto
@@ -6,4 +8,5 @@ public class UserDto
     public string Username { get; set; } = string.Empty;
     public string Email { get; set; } = string.Empty;
     public decimal Balance { get; set; }
+    public USER_ROLE Role { get; set; }
 }

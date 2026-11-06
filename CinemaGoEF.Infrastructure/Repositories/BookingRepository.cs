@@ -1,40 +1,50 @@
 using CinemaGoEF.Core.Interfaces;
 using CinemaGoEF.Core.Models.Entities;
 using CinemaGoEF.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace CinemaGoEF.Infrastructure.Repositories;
 
 public class BookingRepository : IBookingRepository
 {
     private readonly CinemaGoDbContext _context;
-    
+
     public BookingRepository(CinemaGoDbContext context)
     {
         _context = context;
     }
-    
-    public Task<ICollection<Booking>> GetAllBooking()
+
+    public async Task<ICollection<Booking>> GetAllBooking()
     {
-        throw new NotImplementedException();
+        return await _context.Bookings
+            .Include(b => b.Seats)
+            .ToListAsync();
     }
 
-    public Task<Booking?> GetBookingById(int bookingId)
+    public async Task<Booking?> GetBookingById(int bookingId)
     {
-        throw new NotImplementedException();
+        return await _context.Bookings
+            .Include(b => b.Seats)
+            .FirstOrDefaultAsync(b => b.Id == bookingId);
     }
 
-    public Task AddBooking(Booking booking)
+    public async Task AddBooking(Booking booking)
     {
-        throw new NotImplementedException();
+        await _context.Bookings.AddAsync(booking);
     }
 
-    public Task UpdateBooking(Booking booking)
+    public async Task UpdateBooking(Booking booking)
     {
-        throw new NotImplementedException();
+        _context.Bookings.Update(booking);
     }
 
-    public Task DeleteBooking(int bookingId)
+    public async Task DeleteBooking(int bookingId)
     {
-        throw new NotImplementedException();
+        Booking? booking = await _context.Bookings.FindAsync(bookingId);
+
+        if (booking != null)
+        {
+            _context.Bookings.Remove(booking);
+        }
     }
 }

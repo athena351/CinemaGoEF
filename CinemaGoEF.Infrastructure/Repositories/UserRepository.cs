@@ -1,40 +1,46 @@
 using CinemaGoEF.Core.Interfaces;
 using CinemaGoEF.Core.Models.Entities;
 using CinemaGoEF.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace CinemaGoEF.Infrastructure.Repositories;
 
 public class UserRepository : IUserRepository
 {
     private readonly CinemaGoDbContext _context;
-    
+
     public UserRepository(CinemaGoDbContext context)
     {
         _context = context;
     }
-    
-    public Task<ICollection<User>> GetAllUsers()
+
+    public async Task<ICollection<User>> GetAllUsers()
     {
-        throw new NotImplementedException();
+        return await _context.Set<User>().ToListAsync();
     }
 
-    public Task<User> GetUserById(int id)
+    public async Task<User?> GetUserById(int userId)
     {
-        throw new NotImplementedException();
+        return await _context.Set<User>().FindAsync(userId);
     }
 
-    public Task AddUser(User user)
+    public async Task AddUser(User user)
     {
-        throw new NotImplementedException();
+        await _context.Set<User>().AddAsync(user);
     }
 
-    public Task UpdateUser(User user)
+    public async Task UpdateUser(User user)
     {
-        throw new NotImplementedException();
+        _context.Set<User>().Update(user);
     }
 
-    public Task DeleteUser(int id)
+    public async Task DeleteUser(int userId)
     {
-        throw new NotImplementedException();
+        User? user = await _context.Set<User>().FindAsync(userId);
+
+        if (user != null)
+        {
+            _context.Set<User>().Remove(user);
+        }
     }
 }

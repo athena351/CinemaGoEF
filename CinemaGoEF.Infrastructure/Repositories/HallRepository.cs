@@ -1,40 +1,46 @@
 using CinemaGoEF.Core.Interfaces;
 using CinemaGoEF.Core.Models.Entities;
 using CinemaGoEF.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace CinemaGoEF.Infrastructure.Repositories;
 
 public class HallRepository : IHallRepository
 {
     private readonly CinemaGoDbContext _context;
-    
+
     public HallRepository(CinemaGoDbContext context)
     {
         _context = context;
     }
-    
-    public Task<ICollection<Hall>> GetAll()
+
+    public async Task<ICollection<Hall>> GetAll()
     {
-        throw new NotImplementedException();
+        return await _context.Halls.ToListAsync();
     }
 
-    public Task<Hall?> GetById(int hallId)
+    public async Task<Hall?> GetById(int hallId)
     {
-        throw new NotImplementedException();
+        return await _context.Halls.FindAsync(hallId);
     }
 
-    public Task Add(Hall hall)
+    public async Task Add(Hall hall)
     {
-        throw new NotImplementedException();
+        await _context.Halls.AddAsync(hall);
     }
 
-    public Task Update(Hall hall)
+    public async Task Update(Hall hall)
     {
-        throw new NotImplementedException();
+        _context.Halls.Update(hall);
     }
 
-    public Task Delete(int hallId)
+    public async Task Delete(int hallId)
     {
-        throw new NotImplementedException();
+        Hall? hall = await _context.Halls.FindAsync(hallId);
+
+        if (hall != null)
+        {
+            _context.Halls.Remove(hall);
+        }
     }
 }
